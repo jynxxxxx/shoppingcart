@@ -1,14 +1,13 @@
 import { Outlet } from "react-router-dom";
-import './App.css'
-import NavBar from "./components/NavBar";
-import SideBar from "./components/SideBar"
-import './css/MainLayout.css'
+import Header from "./Header";
+import { NavBar } from "./NavBar"
+import '../css/MainLayout.css'
 
 export default function MainLayout( ) {
   return (
     <div className="masterctn">
+      <Header />
       <NavBar />
-      <SideBar />
       <div className="content">
         <Outlet />
       </div>

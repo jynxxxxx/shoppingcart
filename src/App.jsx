@@ -4,7 +4,7 @@ import './App.css'
 import AllProducts from "./pages/AllProducts";
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
-import MainLayout from "./MainLayout";
+import MainLayout from "./components/MainLayout";
 import Cart from "./pages/Cart";
 import { CartContextProvider } from "./context/CartContext";
 

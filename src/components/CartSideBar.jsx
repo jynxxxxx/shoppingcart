@@ -40,6 +40,12 @@ export default function Cart() {
         </div>
       ))}
       <div className="cartTotal">Total Price: ${cartTotal}</div>
+
+      <div className="checkout">
+        <Link to="/shoppingcart/checkout">
+          <button> Checkout</button>
+        </Link>
+      </div>
     </div>
   );
 }

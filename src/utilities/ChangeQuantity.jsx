@@ -1,6 +1,6 @@
 import { useCartContext } from '../context/CartContext';
 
-export default function ChangeQuantity() {
+export function ChangeQuantity() {
   const { setQuantity } = useCartContext();
 
   const handleQuantityChange = (e) => {
@@ -32,6 +32,25 @@ export function ChangeCartQuantity() {
   };
 
   return { handleFinalQuantity };
+}
+
+export function IncrementButtons() {
+  const handleMinusOne = (e) => {
+    const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
+    if (input && input.value > 1) {
+      input.stepDown();
+    }
+  };
+
+  const handleAddOne = (e) => {
+    const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
+    if (input) {
+      input.stepUp();
+    }
+  };
+
+
+  return { handleMinusOne, handleAddOne };
 }
 
 

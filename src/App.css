@@ -1,0 +1,17 @@
+:root{
+  margin: 0;
+  padding: 0;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li{
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+
+

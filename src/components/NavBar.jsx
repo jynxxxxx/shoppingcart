@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
-import { useCartContext } from '../context/CartContext';
-import '../css/NavBar'
+import { UseProductData } from "../data/ProductData";
+import '../css/NavBar.css'
 
-export default function NavBar() {
-  const { cart } = useCartContext();
+export function NavBar() {
+  const { error, loading } = UseProductData();
 
-  return (
-    <div className="navbar">
-      <Link to="/shoppingcart">Store Name</Link>
-      <div><Link to="/shoppingcart/checkout">
-        <object className= "icon" data="./shopping-bag.png" alt="cart"></object>
-        <div className="itemcount">{cart.length}</div>
-      </Link></div>
-    </div>
+  if (error) return <p>A network error was encountered</p>;
+  if (loading) return <p>Loading...</p>;
+
+  const categoryOrder = ["Men's Clothing", "Women's Clothing", "Jewelery", "Electronics"]
+
+  return(
+    <>
+      <div className="navbar">
+        <ul className="navcat">
+          <li className="nav">
+            <Link to="/shoppingcart/products">All Products</Link>
+          </li>
+          {categoryOrder.map((category) => (
+            <li className="nav" key={category}>
+              <Link to={category} state={category}>{category}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }

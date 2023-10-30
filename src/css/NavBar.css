@@ -1,0 +1,25 @@
+.navbar{
+  box-sizing: border-box;
+  height: 50px;
+  position: fixed;
+  background-color: tan;
+  top: 100px;
+  left:0;
+  right:0;
+  display: flex;
+  align-items: center;
+}
+  
+.navcat{  
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav{
+  padding: 0.5rem 1rem;
+  border: 2px black solid;
+  border-radius: 6px;
+}

@@ -1,0 +1,49 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.productctn{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 30rem;
+  gap: 7rem;
+  padding: 3rem;
+}
+
+.productcard{
+  border: 2px black solid;
+  display: grid;
+  grid-template-rows: 1fr 10%;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.cardtitle, .titlelink, .cardcategory{
+  width: 100%;
+}
+
+.productinfo{
+  display: grid;
+  grid-template-rows: 10% 1fr 15%;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.imagelink{
+  box-sizing: border-box;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: inset 2rem transparent;
+}
+
+.pricecart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

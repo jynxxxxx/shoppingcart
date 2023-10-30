@@ -1,14 +1,19 @@
 import { useCartContext } from '../context/CartContext';
 
-export default function AddToCart() {
+export function AddToCart() {
   const { cart, setCart, quantity, setQuantity } = useCartContext();
 
   const handleAddToCart = (e) => {
-    const productCard = e.target.closest('.productctn');
+    const productCard = e.target.closest('.productcard');
+    console.log(productCard)
 
     const title = productCard.querySelector('.cardtitle').textContent;
-    const image = productCard.querySelector('.productimage').src;
+    const image = productCard.querySelector('.imagelink').getAttribute('data-key');
     const price = productCard.querySelector('.cardprice').textContent;
+
+    console.log(title)
+    console.log(image)
+    console.log(price)
 
     const inCartIndex = cart ? cart.findIndex((product) => product.title === title) : -1;
 
