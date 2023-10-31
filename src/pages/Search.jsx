@@ -1,26 +1,35 @@
-import { UseProductData } from "../data/ProductData";
-import { Link, useLocation } from "react-router-dom";
 import { AddToCart } from "../utilities/AddtoCart";
+import { UseProductData } from "../data/ProductData";
+import { useCartContext } from '../context/CartContext';
+import { Link } from "react-router-dom";
 import '../css/ProductCard.css'
 
-export default function Categories() {
-  const { productData, error, loading } = UseProductData();
-  const location = useLocation();
+export function Search() {
+  const { filteredProducts } = useCartContext();
+  const { error, loading } = UseProductData();
   const { handleAddToCart } = AddToCart()
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading...</p>;
 
-  const currentcat = location.state;
+  console.log(filteredProducts)
 
-  // Filter the productData based on the current category
-  const filteredCategory = productData.filter((product) => product.category === currentcat);
-
+  if (filteredProducts.length === 0){
+    return (
+      <>
+        <div className="pageTitle">Search Results</div>
+        <div className="searchError">
+          No products match your search
+        </div>
+      </>
+    )
+  }
+    
   return (
     <>
-      <div className="pageTitle">{currentcat}</div>
+      <div className="pageTitle">Search Results</div>
       <div className="productctn">
-        {filteredCategory.map((product) => (
+        {filteredProducts.map((product) => (
           <div key={product.id} className="productcard">
             <div className="productinfo">
               <div className="cardcategory">{product.category}</div>
@@ -39,4 +48,3 @@ export default function Categories() {
     </>
   );
 }
-

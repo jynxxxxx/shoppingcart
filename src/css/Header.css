@@ -1,7 +1,5 @@
 .header{
   box-sizing: border-box;
-  /* display: flex;
-  justify-content: space-between; */
   height: 100px;
   width: 100%;
   position: fixed;
@@ -20,23 +18,61 @@
 }
 
 .carticon{
-  height: 70px;
+  height: 2.7rem;
   position: absolute;
-  top: 50%; 
-  transform: translateY(-50%);
+  top: 0.5rem; 
   right: 1rem; 
 }
 
 .itemcount{
   position: absolute;
-  top: 55%;
+  top: 30%;
   right: 0.75rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  font-size: 1.5rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  font-size: 0.75rem;
   text-align: center;
   background-color: darkgray;
   border-radius: 50%;
   padding: 5px
 }
+
+.searchbar {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  display: flex;
+  height: 1.5rem;
+  border: 2px black solid;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.search{
+  outline: none;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  padding: 0.2rem;
+}
+
+.clear, .searchicon, .searchbtn{
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: white;
+}
+
+.searchbtn{
+  border-radius: 0 6px 6px 0;
+  padding: 0;
+}
+
+.searchicon{
+  box-sizing: border-box;
+  border-left: black 1px solid;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0 6px 6px 0;
+}
+
+
 

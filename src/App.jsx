@@ -7,6 +7,7 @@ import ProductDetails from "./pages/ProductDetails";
 import MainLayout from "./components/MainLayout";
 import Cart from "./pages/Cart";
 import { CartContextProvider } from "./context/CartContext";
+import {Search} from "./pages/Search";
 
 export default function App( ) {
   return (
@@ -24,6 +25,7 @@ export default function App( ) {
               <Route path=":title" element={<ProductDetails />} />
             </Route>
             <Route path="checkout" element={<Cart />} />
+            <Route path="search" element={<Search />} />
           </Route>
         </Routes>
         <button
