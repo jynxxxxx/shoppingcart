@@ -6,14 +6,13 @@ import '../css/ProductCard.css'
 export default function Categories() {
   const { productData, error, loading } = UseProductData();
   const location = useLocation();
-  const { handleAddToCart } = AddToCart()
+  const { handleSimpleAddToCart } = AddToCart()
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading...</p>;
 
   const currentcat = location.state;
 
-  // Filter the productData based on the current category
   const filteredCategory = productData.filter((product) => product.category === currentcat);
 
   return (
@@ -31,7 +30,7 @@ export default function Categories() {
             </div>
             <div className="pricecart">
               <div className="cardprice">{product.price}</div>
-              <button type="button" onClick={handleAddToCart}>Cart Button</button>
+              <button type="button" onClick={handleSimpleAddToCart}>Cart Button</button>
             </div>
           </ div>
         ))}

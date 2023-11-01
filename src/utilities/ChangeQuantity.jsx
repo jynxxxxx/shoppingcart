@@ -1,56 +1,64 @@
 import { useCartContext } from '../context/CartContext';
 
-export function ChangeQuantity() {
-  const { setQuantity } = useCartContext();
-
-  const handleQuantityChange = (e) => {
-    const newQuantity = e.target.value;
-    setQuantity(newQuantity);
-  };
-
-
-  return { handleQuantityChange };
-}
-
 export function ChangeCartQuantity() {
   const { cart, setCart } = useCartContext();
 
-  const handleFinalQuantity = (e) => {
-    const productCard = e.target.closest('.cartproduct');
-    const title = productCard.querySelector('.carttitle').textContent;
-    const newQuantity = e.target.value;
-
-    const inCartIndex = cart.findIndex((product) => product.title === title);
-
-    const updatedCart = [...cart];
-    updatedCart[inCartIndex].quantity = newQuantity;
-
-    const productPrice = Number(updatedCart[inCartIndex].price.replace('$', ''));
-    updatedCart[inCartIndex].total = productPrice * updatedCart[inCartIndex].quantity;
+  const handleFinalQuantity = (title, newQuantity) => {
+    const updatedCart = cart.map((product) => {
+      if (product.title === title) {
+        return {
+          ...product,
+          quantity: newQuantity,
+          total: newQuantity * parseFloat(product.price.replace('$', '')),
+        };
+      }
+      return product;
+    })
+   
     setCart(updatedCart);
-
   };
+
 
   return { handleFinalQuantity };
 }
 
+
 export function IncrementButtons() {
+  const {handleFinalQuantity} = ChangeCartQuantity()
+
+  const handleInputChange = (e) => {
+    const input = e.target;
+    const title = input.title;
+    const newQuantity = input.value;
+
+    handleFinalQuantity(title, newQuantity);
+  };
+  
   const handleMinusOne = (e) => {
     const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
-    if (input && input.value > 1) {
-      input.stepDown();
-    }
+    const title = input.title
+
+    const currentQuantity = Number(input.value);
+
+    const newQuantity = currentQuantity - 1;
+
+    handleFinalQuantity(title, newQuantity);
   };
 
   const handleAddOne = (e) => {
     const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
-    if (input) {
-      input.stepUp();
-    }
+    console.log(input)
+    
+    const title = input.title
+    const currentQuantity = Number(input.value);
+
+    const newQuantity = currentQuantity + 1;
+
+    handleFinalQuantity(title, newQuantity);
   };
 
 
-  return { handleMinusOne, handleAddOne };
+  return { handleInputChange, handleMinusOne, handleAddOne };
 }
 
 

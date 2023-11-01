@@ -4,9 +4,9 @@ import '../css/ProductCard.css'
 import { AddToCart } from "../utilities/AddtoCart";
 
 
-export default function AllProducts() {
+export function AllProducts() {
   const { productData, error, loading } = UseProductData();
-  const { handleAddToCart } = AddToCart();
+  const { handleSimpleAddToCart } = AddToCart();
 
   
   if (error) return <p>A network error was encountered</p>;
@@ -21,14 +21,14 @@ export default function AllProducts() {
           <div key={product.id} className="productcard">
             <div className="productinfo">
               <div className="cardcategory">{product.category}</div>
-              <Link to={product.title} state={product.title} className="imagelink"  style={{ backgroundImage: `url(${product.image})`}} data={product.image}></Link>
+              <Link to={product.title} state={product.title} className="imagelink"  style={{ backgroundImage: `url(${product.image})`}} data-key={product.image}></Link>
               <Link to={product.title} state={product.title} className="titlelink">
                 <div className="cardtitle">{product.title}</div>
               </Link>
             </div>
             <div className="pricecart">
               <div className="cardprice">{product.price}</div>
-              <button type="button" onClick={handleAddToCart}>Cart Button</button>
+              <button type="button" onClick={handleSimpleAddToCart}>Cart Button</button>
             </div>
           </ div>
         ))}

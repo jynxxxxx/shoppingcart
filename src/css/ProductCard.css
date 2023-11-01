@@ -23,6 +23,12 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 
+.cardtitle, .titlelink{
+  white-space: nowrap;    
+  overflow: hidden;      
+  text-overflow: ellipsis; 
+}
+
 .productinfo{
   display: grid;
   grid-template-rows: 10% 1fr 15%;
