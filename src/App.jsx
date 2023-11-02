@@ -9,7 +9,7 @@ import { SideCart } from "./components/SideCart";
 import { CartContextProvider } from "./context/CartContext";
 import { Search } from "./pages/Search";
 
-export default function App( ) {
+export function App( ) {
   
   return (
     <>
@@ -27,8 +27,6 @@ export default function App( ) {
             </Route>
             <Route path="checkout" element={<SideCart />} />
             <Route path="search" element={<Search />} />
-            
-
           </Route>
         </Routes>
       </CartContextProvider>

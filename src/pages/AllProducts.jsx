@@ -28,7 +28,9 @@ export function AllProducts() {
             </div>
             <div className="pricecart">
               <div className="cardprice">{product.price}</div>
-              <button type="button" onClick={handleSimpleAddToCart}>Cart Button</button>
+              <button type="button" onClick={handleSimpleAddToCart}>
+                <object className= "addtocarticon" data="./add-to-cart.png"></object>
+              </button>
             </div>
           </ div>
         ))}

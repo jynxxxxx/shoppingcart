@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useCartContext } from "../context/CartContext";
-import Header from "./Header";
+import { Header } from "./Header";
 import { NavBar } from "./NavBar"
 import '../css/MainLayout.css'
 
@@ -17,7 +17,7 @@ export default function MainLayout( ) {
     <div className="masterctn">
       <Header />
       <NavBar />
-      <div className="content">
+      <div className="content" style={{ minHeight: '60vh' }}>
         <Outlet />
       </div>
    

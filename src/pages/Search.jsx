@@ -12,8 +12,6 @@ export function Search() {
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading...</p>;
 
-  console.log(filteredProducts)
-
   if (filteredProducts.length === 0){
     return (
       <>
@@ -40,7 +38,9 @@ export function Search() {
             </div>
             <div className="pricecart">
               <div className="cardprice">{product.price}</div>
-              <button type="button" onClick={handleAddToCart}>Cart Button</button>
+              <button type="button" onClick={handleAddToCart}>
+                <object className= "addtocarticon" data="./add-to-cart.png"></object>
+              </button>
             </div>
           </ div>
         ))}

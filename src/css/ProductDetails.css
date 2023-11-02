@@ -1,0 +1,19 @@
+.detailscard{
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  min-height: fit-content;
+}
+
+.detailside{
+  display: grid;
+  grid-template-rows: 50% 30% 20%;
+  min-height: fit-content;
+}
+.detailsimage{
+  height: 200px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -12,6 +12,7 @@ export default function UseProductData() {
           throw new Error('Server error');
         }
         return response.json();
+       
       })
       .then((response) => {
         function capitalizeFirstLetter(str) {
@@ -30,7 +31,11 @@ export default function UseProductData() {
           };
         });
 
-        setProductData(formattedData);
+        const filteredData = formattedData.filter(
+          (product) => product.category !== "Electronics"
+        );
+  
+        setProductData(filteredData);
         setLoading(false);
       })
       .catch((error) => {

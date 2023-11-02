@@ -1,19 +1,21 @@
 .sidebar{
-  width: fit-content;
+  display: flex;
+  width: min-content;
   position:fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
+  right: -1000px;
   background-color: transparent;
   z-index: 1;
-  transition: transform 300ms ease-in;
+  transition: transform 300ms ease-in-out;
 }
 
-
+.sidebar.show {
+  transform: translateX(-1000px); /* Slide in from the right when "show" class is added */
+}
 
 .closeSideCart{
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   background-color: lightgrey;
   display: flex;
   justify-content: center;
@@ -22,9 +24,10 @@
 }
 
 .sideCart{
-  width: 40vw;
+  width: 30vw;
   background-color: white;
   overflow: scroll;
+  min-height: 100vh;
 }
 
 .cartctn{

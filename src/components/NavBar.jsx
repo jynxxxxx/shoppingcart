@@ -8,7 +8,7 @@ export function NavBar() {
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading...</p>;
 
-  const categoryOrder = ["Men's Clothing", "Women's Clothing", "Jewelery", "Electronics"]
+  const categoryOrder = ["Men's Clothing", "Women's Clothing", "Jewelery"]
 
   return(
     <>

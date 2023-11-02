@@ -10,6 +10,7 @@ export function SideCart() {
   const [cartTotal, setCartTotal] = useState(0);
   const { handleInputChange, handleMinusOne, handleAddOne } = IncrementButtons()
   const { removeFromCart } = RemoveFromCart()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     let total = 0;
@@ -20,14 +21,31 @@ export function SideCart() {
     setCartTotal(total.toFixed(2));
   }, [cart]);
 
-    
+  const openSideCart = () => {
+    setIsSidebarOpen(true);
+    document.querySelector('.sidebar').classList.add('show');
+  };
+
   const closeSideCart = () => {
-    document.querySelector('.sidebar').style.display = "none";
-  }
+    setIsSidebarOpen(false);
+    document.querySelector('.sidebar').classList.remove('show');
+  };
+
+  window.addEventListener('click', (e) => {
+    if (isSidebarOpen) {
+      if (!e.target.closest('.sidebar')) {
+        closeSideCart();
+      }
+    } else {
+      if (e.target.matches('.carticon') || e.target.matches('.itemcount')) {
+        openSideCart();
+      }
+    }
+  });
 
   return (
     <>
-      <div className="sidebar"  style={{ display: "none" }}>
+      <div className="sidebar">
         <div className="closeSideCart" onClick={closeSideCart}>
           <div>X</div>
         </div>
@@ -35,7 +53,7 @@ export function SideCart() {
           <div className="cartctn">
             {Object.values(cart).map((product) => (
               <div key={product.title} className="cartproduct">
-                <div key={product.id} className="cartcard">
+                <div className="cartcard">
                   <div className="cartfirstrow">
                     <Link to={`./products/${product.title}`} state={product.title} className="carttitlelink">
                       <div className="carttitle">{product.title}</div>
@@ -83,12 +101,4 @@ export function SideCart() {
       </div>
     </>
   );
-}
-
-export function OpenSideCart() {
-  const openSideCart = () => {
-    document.querySelector('.sidebar').style.display = "flex";
-  }
-
-  return { openSideCart }
 }
