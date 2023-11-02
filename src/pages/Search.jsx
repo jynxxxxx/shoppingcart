@@ -3,6 +3,7 @@ import { UseProductData } from "../data/ProductData";
 import { useCartContext } from '../context/CartContext';
 import { Link } from "react-router-dom";
 import '../css/ProductCard.css'
+import '../css/Search.css'
 
 export function Search() {
   const { filteredProducts } = useCartContext();
@@ -16,7 +17,13 @@ export function Search() {
     return (
       <>
         <div className="pageTitle">Search Results</div>
-        <div className="searchError">
+        <div className="searchError" 
+          style={{
+            fontFamily: 'var(--descripfont)',
+            fontSize: '1.5rem',
+            padding: '3rem',
+            textAlign: 'center',
+          }}>
           No products match your search
         </div>
       </>

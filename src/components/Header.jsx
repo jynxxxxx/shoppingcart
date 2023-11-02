@@ -3,6 +3,8 @@ import { useCartContext } from '../context/CartContext';
 import '../css/Header.css'
 import UseProductData from "../data/ProductData";
 import { SideCart } from "./SideCart";
+import searchicon from '../assets/searchicon.png';
+import shoppingbag from '../assets/shoppingbagicon.png';
 
 export function Header() {
   const { cart, setFilteredProducts, search, setSearch } = useCartContext();
@@ -32,10 +34,10 @@ export function Header() {
   return (
     <>
       <div className="header">
-        <div className="name">
-          <Link to="/shoppingcart">Just Some Stuff</Link>
+        <div className="title">
+          <Link to="/shoppingcart" className="name">Stuff & Stuff</Link>
         </div>
-        <object className= "icon carticon" data="./shopping-bag.png" alt="cart"></object>
+        <object className= "icon carticon" data={shoppingbag} alt="cart"></object>
         {cart.length !== 0 ? <div className="itemcount">{cart.length}</div> : null}
         <div className="searchbar">
           <form onSubmit={handleSearch}>
@@ -52,7 +54,7 @@ export function Header() {
           <button className="clear" onClick={clearSearch}>X</button>
           <Link to="search" onClick={handleSearch}>
             <button className="searchbtn" onClick={handleSearch}>
-              <object className= "searchicon" data="./search.png"></object>     
+              <object className= "searchicon" data={searchicon}></object>     
             </button>
           </Link>
         </div>

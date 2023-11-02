@@ -7,7 +7,7 @@ import RemoveFromCart from "../utilities/RemoveItem";
 
 export function SideCart() {
   const { cart } = useCartContext();
-  const [cartTotal, setCartTotal] = useState(0);
+  const {cartTotal, setCartTotal} = useCartContext()
   const { handleInputChange, handleMinusOne, handleAddOne } = IncrementButtons()
   const { removeFromCart } = RemoveFromCart()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -50,6 +50,7 @@ export function SideCart() {
           <div>X</div>
         </div>
         <div className="sideCart">
+          <div className="pageTitle">Cart</div>
           <div className="cartctn">
             {Object.values(cart).map((product) => (
               <div key={product.title} className="cartproduct">
@@ -93,7 +94,7 @@ export function SideCart() {
               </button>
             <div className="checkout">
               <Link to="/shoppingcart/checkout">
-                <button> Checkout</button>
+                <button className="checkoutbtn" onClick = {closeSideCart}> Checkout</button>
               </Link>
             </div>
           </div>

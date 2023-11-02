@@ -1,6 +1,11 @@
 :root{
   margin: 0;
   padding: 0;
+  --storenamefont: 'Agbalumo', sans-serif;
+  --categorynamefont: "Dela Gothic One", sans-serif;
+  --pageheaderfont: "Palanquin Dark", sans-serif;
+  --descripfont: "Sarala", sans-serif;
+  background-color: rgb(231, 225, 219);
 }
 
 a:-webkit-any-link {
@@ -13,5 +18,26 @@ ul, li{
   margin: 0;
   padding: 0;
 }
+
+.pageTitle{
+  font-family: var(--pageheaderfont);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+} 
+
+.nav:hover{
+  transform: scale(1.1);
+}
+
+button:hover{
+  transform: scale(1.05);
+}
+
+.carticon:hover{
+  transform: scale(1.1);
+}
+
 
 

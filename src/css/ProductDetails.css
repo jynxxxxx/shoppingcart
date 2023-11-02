@@ -1,19 +1,79 @@
 .detailscard{
   display: grid;
-  grid-template-columns: 60% 1fr;
-  min-height: fit-content;
+  grid-template-columns: 40% 1fr;
+  font-family: var(--pageheaderfont);
 }
 
 .detailside{
   display: grid;
-  grid-template-rows: 50% 30% 20%;
+  grid-template-rows: auto 1fr 20%;
   min-height: fit-content;
+  gap: 1rem;
+  padding-right: 15%;
 }
+
+.detailsinfo{
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 1rem
+}
+
+.detailstitle{
+  font-size: 2rem;
+  line-height: 2.1rem;
+}
+
 .detailsimage{
-  height: 200px;
-  box-sizing: border-box;
-  flex-grow: 1;
+  height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.quantity{
+  font-size: 1rem;
+  font-family: var(--descripfont);
+  border: none;
+  text-align: center;
+  width: 2rem;
+}
+
+.quantityinput{
+  display: flex;
+  height: fit-content;
+  border: grey solid 1px;
+  border-radius: 4px;
+  width: min-content;
+}
+
+.descrip{
+  padding-left: 2rem;
+  font-family: var(--descripfont);
+}
+
+.incbtn, .addtocart{
+  font-family: var(--pageheaderfont);
+}
+
+.incbtn{
+  border: none;
+}
+
+.addtocart{
+  margin-left: auto;
+  height: fit-content;
+  padding: 4px 16px;
+  border-radius: 6px;
+}
+
+.pricectn{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1rem;
+}
+
+.detailsprice{
+  font-size: 1.2rem;
 }

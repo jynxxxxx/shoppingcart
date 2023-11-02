@@ -29,36 +29,38 @@ export function ProductDetails() {
                 <div className="detailscat">{product.category}</div>
                 <div className="detailstitle">{product.title}</div>
                 <div className="descrip">{product.description}</div>
+              </div>
+              <div className="pricectn">
                 <div className="detailsprice">{product.price}</div>
-              </div>
-              <div className="quantityinput">
-                <button className="incbtn" 
-                  onClick={(e) => {
-                    const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
-                    if (input.value>1) {
-                      const newValue = parseInt(input.value, 10) - 1;
+                <div className="quantityinput">
+                  <button className="incbtn" 
+                    onClick={(e) => {
+                      const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
+                      if (input.value>1) {
+                        const newValue = parseInt(input.value, 10) - 1;
+                        setQuantity(newValue)
+                      }
+                    }}>-
+                  </button>
+                  <input
+                    className="quantity"
+                    type="number"
+                    title ={product.title}                      
+                    min={1}
+                    value={quantity}
+                    onChange= {(e) => setQuantity(e.target.value)}
+                  />
+                  <button className="incbtn" 
+                    onClick={(e) => {
+                      const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
+                      const newValue = parseInt(input.value, 10) + 1;
                       setQuantity(newValue)
-                    }
-                  }}>-
-                </button>
-                <input
-                  className="quantity"
-                  type="number"
-                  title ={product.title}                      
-                  min={1}
-                  value={quantity}
-                  onChange= {(e) => setQuantity(e.target.value)}
-                />
-                <button className="incbtn" 
-                  onClick={(e) => {
-                    const input = e.target.closest('.quantityinput').querySelector('input[type=number]');
-                    const newValue = parseInt(input.value, 10) + 1;
-                    setQuantity(newValue)
-                  }}>+
-                </button>
+                    }}>+
+                  </button>
+                </div>
+              <button className="addtocart" type="button" onClick={handleDetailAddToCart}>Add to Cart</button>
               </div>
-              <button type="button" onClick={handleDetailAddToCart}>Cart Button</button>
-              </div>
+            </div>
           </div>
         ))}
       </div>

@@ -7,19 +7,23 @@ input[type=number]::-webkit-outer-spin-button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 20rem;
-  gap: 7rem;
-  padding: 3rem;
+  gap: 5%;
+  padding: 2rem;
 }
 
 .productcard{
+  box-sizing: border-box;
   border: 2px black solid;
   display: grid;
   grid-template-rows: 1fr 10%;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 0.7rem 0.7rem;
+  font-family: var(--pageheaderfont);
+  gap: 1rem;
 }
 
-.cardtitle, .titlelink, .cardcategory{
+.cardcategory{
+  font-size: 0.7rem;
   width: 100%;
 }
 
@@ -27,14 +31,16 @@ input[type=number]::-webkit-outer-spin-button {
   white-space: nowrap;    
   overflow: hidden;      
   text-overflow: ellipsis; 
+  width: 100%;
 }
 
 .productinfo{
   display: grid;
-  grid-template-rows: 10% 1fr 15%;
+  grid-template-rows: 15% 1fr 20%;
   align-items: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .imagelink{
@@ -45,18 +51,22 @@ input[type=number]::-webkit-outer-spin-button {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border: inset 2rem transparent;
+  border: inset 0.5rem transparent;
 }
 
 .pricecart{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  gap: 1rem;
 }
 
-button{
+.addtocartcat{
+  width: 30%;
   height: 100%;
 }
+
 .addtocarticon{
   height: 100%;
+  background-color: transparent;
 }

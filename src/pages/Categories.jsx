@@ -30,7 +30,7 @@ export default function Categories() {
             </div>
             <div className="pricecart">
               <div className="cardprice">{product.price}</div>
-              <button type="button" onClick={handleSimpleAddToCart}>
+              <button className="addtocartcat" type="button" onClick={handleSimpleAddToCart}>
                 <object className= "addtocarticon" data="./add-to-cart.png"></object>
               </button>
             </div>

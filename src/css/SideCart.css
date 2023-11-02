@@ -4,6 +4,7 @@
   position:fixed;
   top: 0;
   right: -1000px;
+  bottom: 0;
   background-color: transparent;
   z-index: 1;
   transition: transform 300ms ease-in-out;
@@ -16,31 +17,36 @@
 .closeSideCart{
   height: 2rem;
   width: 2rem;
-  background-color: lightgrey;
+  background-color: rgb(226, 226, 226);
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px black solid;
+  font-family: var(--pageheaderfont);
+  border-radius: 6px 0 0 6px;
 }
 
 .sideCart{
   width: 30vw;
   background-color: white;
-  overflow: scroll;
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: 3rem 1fr;
 }
 
 .cartctn{
   display: grid;
   box-sizing: border-box;
   grid-auto-rows: 10rem;
+  overflow-y: scroll;
+  padding: 1rem 5%;
 }
 
 .cartcard{
-  border: 2px black solid;
+  border-bottom: 1px lightgrey solid;
+  border-top: 1px lightgrey solid;
   height: 100%;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 1rem 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(4, 1fr);
@@ -58,6 +64,7 @@
   white-space: nowrap;    
   overflow: hidden;      
   text-overflow: ellipsis; 
+  font-family: var(--pageheaderfont);
 }
 
 .cartimagelink{
@@ -70,22 +77,58 @@
   background-position: center;
 }
 
-.pricecart{
+.cartprice, .totalprice{
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
+  font-family: var(--descripfont);
+  text-align: right;
+  padding-right: 10%;
 }
 
 .quantityinput{
   display: flex;
+  justify-content: right;
+  margin-right: 10%;
+  border: grey solid 1px;
+  border-radius: 4px;
+  width: min-content;
 }
 
 .quantity{
+  outline: none;
   width: 2rem;
   text-align: center;
+  font-family: var(--descripfont);
+  border: none
+}
+
+.incbtn{
+  font-family: var(--pageheaderfont);
+  border: none;
 }
 
 .removebtn{
   width: fit-content;
   justify-self: end;
+  font-family: var(--pageheaderfont);
+}
+
+.cartTotal, .clearCart, .checkoutbtn{
+  font-family: var(--pageheaderfont);
+}
+
+.cartTotal{
+  text-align: right;
+  padding-top: 1rem;
+  margin-right: 3rem;
+  font-size: 1.5rem;
+}
+
+.cartbtns{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 3rem;
+  padding: 2rem 0;
 }
