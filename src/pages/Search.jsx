@@ -3,7 +3,6 @@ import { UseProductData } from "../data/ProductData";
 import { useCartContext } from '../context/CartContext';
 import { Link } from "react-router-dom";
 import '../css/ProductCard.css'
-import '../css/Search.css'
 
 export function Search() {
   const { filteredProducts } = useCartContext();
