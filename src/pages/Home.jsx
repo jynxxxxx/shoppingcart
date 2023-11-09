@@ -26,30 +26,30 @@ export default function Home() {
     const interval = setInterval(nextSlide, 5000); // Change slide every 3 seconds
 
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, []);
 
   return (
     <>
       <div className="maincontainer">
-        <object className="arrow back" data="./leftarrow.png" onClick={prevSlide}></object>
+        <object className="arrow back" data="/leftarrow.png" onClick={prevSlide}></object>
         <div className="slider" style={{ transform: `translateX(-${slideIndex * 100}%)` }}>
           {imageFilenames.map((filename, index) => (
             <div
               key={index}
               className={`picturecontainer ${index === slideIndex ? ' active' : ''}`}
             >
-              <img className="pic" src={`./${filename}`} alt="sale banner" />
+              <img className="pic" src={`/${filename}`} alt="sale banner" />
             </div>
           ))}
         </div>
-        <object className="arrow next" data="./rightarrow.png" onClick={nextSlide}></object>
+        <object className="arrow next" data="/rightarrow.png" onClick={nextSlide}></object>
       </div>
       <div className="circles">
         {imageFilenames.map((filename, index) => (
           <object
             key={index}
             className={`circle${index === slideIndex ? ' active' : ''}`}
-            data="./circle.png"
+            data="/circle.png"
             onClick={() => showSlide(index)}
           ></object>
         ))}

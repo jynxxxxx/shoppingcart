@@ -30,7 +30,7 @@ export function Checkout() {
             onClick={() => {
               window.localStorage.clear();
               alert('Your purchase has been received and is on its way!')
-              navigate('/', { replace: true });
+              navigate('/shoppingcart', { replace: true });
             }}>Checkout
           </button>
       </div>
