@@ -44,7 +44,7 @@ export function Search() {
             </div>
             <div className="pricecart">
               <div className="cardprice">{product.price}</div>
-              <button type="button" onClick={handleAddToCart}>
+              <button className="addtocartcat" type="button" onClick={handleAddToCart}>
                 <object className= "addtocarticon" data="./add-to-cart.png"></object>
               </button>
             </div>

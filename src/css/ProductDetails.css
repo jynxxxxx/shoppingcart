@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 40% 1fr;
   font-family: var(--pageheaderfont);
+  background-color: white;
 }
 
 .detailside{
